@@ -1,8 +1,6 @@
 name: Continuous Delivery
 
-on:
-  release:
-    types: [published]
+on: pull_request
 
 jobs:
   build-package-and-publish-release:
@@ -23,4 +21,5 @@ jobs:
         run: npm publish --access public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-          RELEASE_VERSION: ${{ github.ref_name }}
+          # RELEASE_VERSION: ${{ github.ref_name }}
+          RELEASE_VERSION: "TESTING"

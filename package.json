@@ -1,7 +1,7 @@
 {
   "name": "conductor-javascript",
   "description": "Typescript Client for Netflix Conductor",
-  "version": "$RELEASE_VERSION",
+  "version": "${RELEASE_VERSION}",
   "exports": {
     ".": {
       "require": "./dist/index.js",
@@ -32,7 +32,8 @@
     "generateClient:models": "npx openapi-typescript-codegen --input  http://localhost:8080/api-docs --output src/common/open-api --client node --indent 2 --name ConductorClient --useUnionTypes --exportCore false",
     "generateClient:core": "npx openapi-typescript-codegen --input http://localhost:8080/api-docs  --output src/common/open-api --client node --indent 2 --name ConductorClient --useUnionTypes && find ./src/common/open-api/services/*Service.ts -type f -exec sed -i '' -e 's/api\\///g' {} \\;",
     "ci": "npm run lint && npm run test",
-    "generate-docs": "typedoc --plugin typedoc-plugin-markdown"
+    "generate-docs": "typedoc --plugin typedoc-plugin-markdown",
+    "echo-env": "echo $RELEASE_VERSION"
   },
   "author": "Conductor community",
   "license": "Apache-2.0",
